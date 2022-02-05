@@ -50,6 +50,7 @@ return packer.startup(function(use)
     }
     use "junegunn/fzf"
     use "junegunn/fzf.vim"
+    use "akinsho/toggleterm.nvim"
 
     use 'editorconfig/editorconfig-vim'
     -- completion
