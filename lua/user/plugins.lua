@@ -50,7 +50,7 @@ return packer.startup(function(use)
     }
     use "junegunn/fzf"
     use "junegunn/fzf.vim"
-    use "akinsho/toggleterm.nvim"
+    -- use "akinsho/toggleterm.nvim"
 
     use 'editorconfig/editorconfig-vim'
     -- completion
@@ -76,6 +76,9 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
     -- use "p00f/nvim-ts-rainbow"
+
+    -- syntax
+    use 'towolf/vim-helm'
 
     -- Colorshemes
     use 'quozd/vim-dogrun'

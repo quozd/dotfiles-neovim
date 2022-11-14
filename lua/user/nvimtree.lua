@@ -1,36 +1,3 @@
-vim.g.nvim_tree_disable_window_picker = 1
-
-vim.g.nvim_tree_show_icons = {
-    git = 0,
-    folders = 1,
-    files = 0,
-    folder_arrows = 0,
-    tree_width = 60,
-}
-
-vim.g.nvim_tree_icons = {
-    default = "",
-    symlink = "*",
-    git = {
-        unstaged = "u",
-        staged = "S",
-        unmerged = "um",
-        renamed = "➜",
-        deleted = "d",
-        untracked = "U",
-        ignored = "i",
-    },
-    folder = {
-        default = "▸",
-        open = "▾",
-        -- default = " ",
-        -- open = " ",
-        empty = "▫",
-        empty_open = "▫",
-        symlink = "*",
-    },
-}
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
     return
@@ -41,13 +8,20 @@ nvim_tree.setup {
     hijack_netrw        = true,
     open_on_setup       = false,
     ignore_ft_on_setup  = {},
-    auto_close          = false,
     open_on_tab         = false,
     hijack_cursor       = false,
     update_cwd          = true,
-    update_to_buf_dir   = {
+    hijack_directories   = {
         enable = true,
         auto_open = true,
+    },
+    actions = {
+        open_file = {
+            resize_window = false,
+            window_picker = {
+                enable = true
+            },
+        },
     },
     diagnostics = {
         enable = false,
@@ -79,10 +53,8 @@ nvim_tree.setup {
     },
     view = {
         width = 40,
-        height = 30,
         hide_root_folder = false,
         side = 'left',
-        auto_resize = true,
         mappings = {
             custom_only = false,
             list = {}
@@ -94,5 +66,38 @@ nvim_tree.setup {
     trash = {
         cmd = "trash",
         require_confirm = true
+    },
+    renderer = {
+        icons = {
+            show = {
+                git = false,
+                folder = true,
+                file = false,
+                folder_arrow = false,
+                -- tree_width = 60,
+            },
+            glyphs = {
+                default = "",
+                symlink = "*",
+                git = {
+                    unstaged = "u",
+                    staged = "S",
+                    unmerged = "um",
+                    renamed = "➜",
+                    deleted = "d",
+                    untracked = "U",
+                    ignored = "i",
+                },
+                folder = {
+                    default = "▸",
+                    open = "▾",
+                    -- default = " ",
+                    -- open = " ",
+                    empty = "▫",
+                    empty_open = "▫",
+                    symlink = "*",
+                },
+            },
+        },
     },
 }

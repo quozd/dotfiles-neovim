@@ -4,9 +4,9 @@ if not ts_status_ok then
 end
 
 ts.setup {
-  ensure_installed = "maintained",
+  ensure_installed = {"bash", "comment", "dockerfile", "fish", "gitignore", "gitattributes", "go", "gomod", "graphql", "hcl", "html", "java", "javascript", "json", "json5", "lua", "make", "markdown", "python", "sql", "toml", "typescript", "vim", "yaml"},
   sync_install = false,
-  ignore_install = { "ocamllex", "teal" }, -- List of parsers to ignore installing
+  --ignore_install = { "ocamllex", "teal" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
