@@ -1,9 +1,9 @@
-local status_ok, indent_blankline = pcall(require, "indent_blankline")
+local status_ok, indentblankline = pcall(require, "indent_blankline")
 if not status_ok then
     return
 end
 
-indent_blankline.setup {
+indentblankline.setup {
     show_current_context = false,
     show_current_context_start = false,
     use_treesitter = true,

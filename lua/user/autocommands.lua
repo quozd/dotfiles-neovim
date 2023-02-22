@@ -1,6 +1,7 @@
---" trim whitespace on save
---au BufWritePre * :%s/\s\+$//e
-
+-- trim whitespace on save
+vim.cmd [[
+    au BufWritePre * :%s/\s\+$//e
+]]
 
 vim.cmd [[
     au InsertEnter * :set norelativenumber

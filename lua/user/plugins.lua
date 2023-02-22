@@ -32,43 +32,37 @@ return packer.startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Common library
+    use "nvim-lua/plenary.nvim"
+
     use "numToStr/Comment.nvim"
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
-    }
+    use 'lewis6991/gitsigns.nvim'
     use 'kyazdani42/nvim-tree.lua'
-    -- use 'scrooloose/nerdtree'
+    use 'folke/which-key.nvim'
     use "lukas-reineke/indent-blankline.nvim"
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { 
-            {'nvim-lua/plenary.nvim'},
-        }
-    }
+    use 'nvim-telescope/telescope.nvim'
     use "junegunn/fzf"
     use "junegunn/fzf.vim"
-    -- use "akinsho/toggleterm.nvim"
+    use "crispgm/nvim-tabline"
+    use "williamboman/mason.nvim" -- manage plugin deps (e.g. lsp servers)
+    use "williamboman/mason-lspconfig.nvim"
 
     use 'editorconfig/editorconfig-vim'
+
     -- completion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-buffer'
     use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-nvim-lua"
-    use 'saadparwaiz1/cmp_luasnip'
+    use "hrsh7th/cmp-nvim-lsp-signature-help"
+    use 'L3MON4D3/LuaSnip'
+    use "saadparwaiz1/cmp_luasnip"
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim"
-
-    -- snippets
-    use 'L3MON4D3/LuaSnip'
+    use "lvimuser/lsp-inlayhints.nvim"
 
     -- Treesitter
     use {
@@ -84,6 +78,7 @@ return packer.startup(function(use)
     use 'quozd/vim-dogrun'
     use 'folke/tokyonight.nvim'
     use 'EdenEast/nightfox.nvim'
+    use 'rebelot/kanagawa.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -3,9 +3,12 @@ if not status_ok then
     return
 end
 
-local actions = require "telescope.actions"
+local actions_status_ok, actions = pcall(require, "telescope.actions")
+if not actions_status_ok then
+    return
+end
 
-telescope.setup{
+telescope.setup {
     defaults = {
         -- Default configuration for telescope goes here:
         -- config_key = value,
@@ -54,3 +57,6 @@ telescope.setup{
     -- please take a look at the readme of the extension you want to configure
     }
 }
+
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, noremap = true, desc = 'Find file'})
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, noremap = true, desc = 'Find in files'})
