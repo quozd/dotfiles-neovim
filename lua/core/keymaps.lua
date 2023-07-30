@@ -44,3 +44,7 @@ map("n", "<C-n>", ":Neotree toggle<CR>", "Toggle file tree")
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", "Find file")
 map("n", "<leader>fg", ":Telescope live_grep<CR>", "Find in files (grep)")
+map("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffer")
+map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", "Find symbol")
+map("n", "<leader>fd", ":Telescope diagnostics<CR>", "Find diagnostic")
+map("n", "<leader>fc", ":Telescope git_bcommits<CR>", "Find commit")

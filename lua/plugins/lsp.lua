@@ -5,36 +5,6 @@ local map = function(mode, lhs, rhs, bufnr, desc, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-local on_attach = function(client, bufnr)
-    local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
-    if inlay_hint and client.supports_method('textDocument/inlayHint') then
-        inlay_hint(bufnr, true)
-    end
-
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    -- Actions
-    map('n', '<leader>af', function() vim.lsp.buf.format { async = true } end, bufnr, "Format code")
-    map('n', '<leader>ar', vim.lsp.buf.rename, bufnr, "Rename")
-    map('n', '<leader>aa', vim.lsp.buf.code_action, bufnr, "Code actions")
-
-    -- Diagnostics
-    map("n", "<leader>dd", vim.diagnostic.open_float, bufnr, "Show diagnostic")
-    print("on_attach")
-    map("n", "<leader>dk", vim.diagnostic.goto_prev, bufnr, "Prev diagnostic")
-    map("n", "<leader>dj", vim.diagnostic.goto_next, bufnr, "Next diagnostic")
-    map("n", "<leader>dq", vim.diagnostic.setloclist, bufnr, "Diagnostics loclist")
-
-    -- GoTo
-    map('n', 'gD', vim.lsp.buf.declaration, bufnr, "Go to declaration")
-    map('n', 'gd', vim.lsp.buf.definition, bufnr, "Go to definition")
-    map('n', 'gi', vim.lsp.buf.implementation, bufnr, "Go to implementation")
-    map('n', 'gr', vim.lsp.buf.references, bufnr, "Show references")
-
-    -- Misc
-    map('n', 'K', vim.lsp.buf.hover, bufnr, "Show help")
-end
-
 return {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -69,6 +39,35 @@ return {
 
         local capabilities = cmplsp.default_capabilities()
 
+        local on_attach = function(client, bufnr)
+            local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
+            if inlay_hint and client.supports_method('textDocument/inlayHint') then
+                inlay_hint(bufnr, true)
+            end
+
+            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+            -- Actions
+            map('n', '<leader>af', function() vim.lsp.buf.format { async = true } end, bufnr, "Format code")
+            map('n', '<leader>ar', vim.lsp.buf.rename, bufnr, "Rename")
+            map('n', '<leader>aa', vim.lsp.buf.code_action, bufnr, "Code actions")
+
+            -- Diagnostics
+            map("n", "<leader>dd", vim.diagnostic.open_float, bufnr, "Show diagnostic")
+            map("n", "<leader>dk", vim.diagnostic.goto_prev, bufnr, "Prev diagnostic")
+            map("n", "<leader>dj", vim.diagnostic.goto_next, bufnr, "Next diagnostic")
+            map("n", "<leader>dq", vim.diagnostic.setloclist, bufnr, "Diagnostics loclist")
+
+            -- GoTo
+            map('n', 'gD', vim.lsp.buf.declaration, bufnr, "Go to declaration")
+            map('n', 'gd', vim.lsp.buf.definition, bufnr, "Go to definition")
+            map('n', 'gi', vim.lsp.buf.implementation, bufnr, "Go to implementation")
+            map('n', 'gr', vim.lsp.buf.references, bufnr, "Show references")
+
+            -- Misc
+            map('n', 'K', vim.lsp.buf.hover, bufnr, "Show help")
+        end
+
         mlsp.setup({
             handlers = {
                 -- default handler (optional)
@@ -99,7 +98,7 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-                ["rust_analyzer"] = function ()
+                ["rust_analyzer"] = function()
                     lspconfig["rust_analyzer"].setup {
                         on_attach = on_attach,
                         settings = {
