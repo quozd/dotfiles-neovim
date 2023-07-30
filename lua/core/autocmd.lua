@@ -7,3 +7,4 @@ vim.cmd [[
     au InsertEnter * :set norelativenumber
     au InsertLeave * :set relativenumber
 ]]
+
