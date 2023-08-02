@@ -8,7 +8,7 @@ vim.opt.backspace = { "indent", "eol", "start" } -- sane backspace behaviour
 vim.opt.backup = false -- don't keep backups
 vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.colorcolumn = "120" -- highlight 120 column
-vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "preview" } -- show compeltion popup even with 1 item, don't autoselect
+vim.opt.completeopt = { "menu", "menuone", "noselect", "preview" } -- show compeltion popup even with 1 item, don't autoselect
 vim.opt.copyindent = true -- copy the previous indentation on autoindenting
 vim.opt.cursorline = true -- highlight cursor line
 vim.opt.diffopt:append "linematch:60" -- enable linematch diff algorithm

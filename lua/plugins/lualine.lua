@@ -7,6 +7,9 @@ return {
             component_separators = "",
             section_separators = "",
             globalstatus = true,
+            disabled_filetypes = {
+                winbar = { 'aerial', 'neo-tree' },
+            },
         },
         sections = {
             lualine_a = {'mode'},
@@ -15,6 +18,12 @@ return {
             lualine_x = {'branch', 'diff', 'diagnostics'},
             lualine_y = {'encoding', 'fileformat', 'filetype'},
             lualine_z = {'location'},
+        },
+        winbar = {
+            lualine_c = {{'filename', path = 3}},
+        },
+        inactive_winbar = {
+            lualine_c = {{'filename', path = 3}},
         },
         extensions = {"quickfix", "neo-tree", "trouble", "nvim-dap-ui", "aerial"}
     },

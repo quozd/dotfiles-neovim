@@ -48,3 +48,6 @@ map("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffer")
 map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", "Find symbol")
 map("n", "<leader>fd", ":Telescope diagnostics<CR>", "Find diagnostic")
 map("n", "<leader>fc", ":Telescope git_bcommits<CR>", "Find commit")
+
+-- Aerial
+map("n", "<leader>n", ":AerialToggle<CR>", "Toggle navigation tree")

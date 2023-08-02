@@ -8,3 +8,6 @@ vim.cmd [[
     au InsertLeave * :set relativenumber
 ]]
 
+vim.cmd [[
+    au VimEnter * :Telescope find_files
+]]
