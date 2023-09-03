@@ -98,6 +98,13 @@ return {
                         capabilities = capabilities,
                     })
                 end,
+                ["pyright"] = function()
+                    lspconfig["pyright"].setup({
+                        on_attach = on_attach,
+                        flags = { debounce_text_changes = 300, },
+                        capabilities = capabilities,
+                    })
+                end,
                 ["rust_analyzer"] = function()
                     lspconfig["rust_analyzer"].setup {
                         on_attach = on_attach,
