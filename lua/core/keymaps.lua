@@ -19,8 +19,8 @@ map("n", "<C-Left>", ":vertical resize -2<CR>", "Decrease window width")
 map("n", "<C-Right>", ":vertical resize +2<CR>", "Increase window width")
 
 -- Navigate buffers
-map("n", "<S-l>", ":bnext<CR>", "Next buffer")
-map("n", "<S-h>", ":bprevious<CR>", "Previous buffer")
+map("n", "<S-l>", ":tabnext<CR>", "Next tab")
+map("n", "<S-h>", ":tabprevious<CR>", "Previous tab")
 
 -- Remove search highlight on Enter
 map("n", "<CR>", ":nohlsearch<CR><CR>", "Remove search highlights")
