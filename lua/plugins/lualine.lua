@@ -13,7 +13,7 @@ return {
         },
         sections = {
             lualine_a = {'mode'},
-            lualine_b = {'tabs'},
+            lualine_b = {{'tabs', mode = 0}},
             lualine_c = {{'filename', path = 3}},
             lualine_x = {'branch', 'diff', 'diagnostics'},
             lualine_y = {'encoding', 'fileformat', 'filetype'},
