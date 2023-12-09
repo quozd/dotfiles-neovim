@@ -1,6 +1,7 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+vim.opt.syntax = "on"
 vim.opt.autoindent = true -- copy indent from current line when starting a new line
 vim.opt.autoread = true -- reread files automatically
 vim.opt.autowrite = true -- Enable auto write
