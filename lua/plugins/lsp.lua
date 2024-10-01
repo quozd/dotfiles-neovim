@@ -28,22 +28,37 @@ return {
                     "lua-language-server",
                 },
             },
-
         },
-        -- "lvimuser/lsp-inlayhints.nvim",
+        -- {
+        --     "lvimuser/lsp-inlayhints.nvim",
+        --     opts = {},
+        -- },
     },
     config = function(_, opts)
         local lspconfig = require("lspconfig")
         local cmplsp = require("cmp_nvim_lsp")
+        require("mason").setup()
         local mlsp = require("mason-lspconfig")
 
-        local capabilities = cmplsp.default_capabilities()
+        local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmplsp.default_capabilities()
+        )
 
         local on_attach = function(client, bufnr)
             local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
-            if inlay_hint and client.supports_method('textDocument/inlayHint') then
-                inlay_hint(bufnr, true)
+            if client.supports_method('textDocument/inlayHint') then
+                -- if client.server_capabilities and client.server_capabilities.inlayHintsSupport then
+                if type(inlay_hint) == 'function' then
+                    inlay_hint(bufnr, true)
+                elseif type(inlay_hint) == 'table' and inlay_hint.enable then
+                    inlay_hint.enable(true, { bufnr = buf })
+                end
             end
+
+            -- require("lsp-inlayhints").on_attach(client, bufnr)
 
             vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -119,6 +134,25 @@ return {
                         capabilities = capabilities,
                     }
                 end,
+                ["gopls"] = function()
+                    lspconfig["gopls"].setup({
+                        on_attach = on_attach,
+                        capabilities = capabilities,
+                        settings = {
+                            gopls = {
+                                ["ui.hints"] = {
+                                    assignVariableTypes = true,
+                                    compositeLiteralFields = true,
+                                    compositeLiteralTypes = true,
+                                    constantValues = true,
+                                    functionTypeParameters = true,
+                                    parameterNames = true,
+                                    rangeVariableTypes = true,
+                                }
+                            },
+                        },
+                    })
+                end
             }
         })
     end,

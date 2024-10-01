@@ -39,7 +39,7 @@ map("v", "<A-j>", ":m '>+1<CR>gv=gv", "Move line up")
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", "Move line down")
 
 -- Neotree
-map("n", "<C-n>", ":Neotree toggle<CR>", "Toggle file tree")
+map("n", "<C-n>", ":Neotree toggle=true reveal=true position=current<CR>", "Toggle file tree")
 
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", "Find file")
