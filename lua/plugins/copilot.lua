@@ -28,7 +28,7 @@ return {
                 enabled = true,
                 auto_trigger = true,
                 keymap = {
-                    accept = "<C-CR>",
+                    accept = "<C-Space>",
                 }
                 -- accept = false, -- disable built-in keymapping
             },
