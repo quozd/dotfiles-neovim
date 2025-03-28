@@ -11,7 +11,7 @@ vim.cmd [[
 if vim.fn.argc() == 0 then
     vim.defer_fn(
         function()
-            vim.cmd('Telescope find_files')
+            vim.cmd('Neotree source=filesystem position=current')
         end,
         0
     )

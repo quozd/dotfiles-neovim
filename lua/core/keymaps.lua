@@ -1,10 +1,5 @@
-local function map(mode, lhs, rhs, desc, opts)
-    opts = opts or { noremap = true, silent = true }
-    opts.desc = desc
-    vim.keymap.set(mode, lhs, rhs, opts)
-end
+local map = require("utils.keymap").map
 
--- Normal --
 -- Navigate windows
 map("n", "<C-h>", "<C-w>h", "Go to the window the left")
 map("n", "<C-j>", "<C-w>j", "Go to the window above")
@@ -29,7 +24,6 @@ map("n", "<CR>", ":nohlsearch<CR><CR>", "Remove search highlights")
 map("n", "<leader>u", ':exe "set " . (&relativenumber == 1 ? "norelativenumber" : "relativenumber")<cr>',
     "Toggle relative numbers")
 
--- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", "Decrease indentation")
 map("v", ">", ">gv", "Increase indentation")
@@ -38,16 +32,3 @@ map("v", ">", ">gv", "Increase indentation")
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", "Move line up")
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", "Move line down")
 
--- Neotree
-map("n", "<C-n>", ":Neotree toggle=true reveal=true position=current<CR>", "Toggle file tree")
-
--- Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", "Find file")
-map("n", "<leader>fg", ":Telescope live_grep<CR>", "Find in files (grep)")
-map("n", "<leader>fb", ":Telescope buffers<CR>", "Find buffer")
-map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", "Find symbol")
-map("n", "<leader>fd", ":Telescope diagnostics<CR>", "Find diagnostic")
-map("n", "<leader>fc", ":Telescope git_bcommits<CR>", "Find commit")
-
--- Aerial
-map("n", "<leader>n", ":AerialToggle<CR>", "Toggle navigation tree")
