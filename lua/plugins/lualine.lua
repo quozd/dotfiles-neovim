@@ -8,7 +8,7 @@ return {
             section_separators = "",
             globalstatus = true,
             disabled_filetypes = {
-                winbar = { 'aerial', 'neo-tree' },
+                winbar = { 'aerial', 'neo-tree', 'Avante', 'AvanteSelectedFiles', 'AvanteInput' },
             },
         },
         sections = {

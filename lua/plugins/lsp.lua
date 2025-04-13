@@ -63,9 +63,9 @@ return {
             vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
             -- Actions
-            map('n', '<leader>af', function() vim.lsp.buf.format { async = true } end, bufnr, "Format code")
-            map('n', '<leader>ar', vim.lsp.buf.rename, bufnr, "Rename")
-            map('n', '<leader>aa', vim.lsp.buf.code_action, bufnr, "Code actions")
+            map('n', '<leader>cf', function() vim.lsp.buf.format { async = true } end, bufnr, "Format code")
+            map('n', '<leader>cr', vim.lsp.buf.rename, bufnr, "Rename")
+            map('n', '<leader>ca', vim.lsp.buf.code_action, bufnr, "Code actions")
 
             -- Diagnostics
             map("n", "<leader>dd", vim.diagnostic.open_float, bufnr, "Show diagnostic")
