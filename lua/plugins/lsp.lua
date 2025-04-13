@@ -121,18 +121,10 @@ return {
                     })
                 end,
                 ["rust_analyzer"] = function()
-                    lspconfig["rust_analyzer"].setup {
+                    lspconfig["rust_analyzer"].setup({
                         on_attach = on_attach,
-                        settings = {
-                            inlayHints = {
-                                enabled = true,
-                                typeHints = {
-                                    enable = true,
-                                },
-                            },
-                        },
                         capabilities = capabilities,
-                    }
+                    })
                 end,
                 ["gopls"] = function()
                     lspconfig["gopls"].setup({

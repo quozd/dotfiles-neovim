@@ -57,7 +57,7 @@ return {
             hijack_netrw_behavior = "open_current",
         },
         document_symbols = {
-            follow_cursor = true,
+            -- follow_cursor = true,
             renderers = {
                 root = {
                     {"indent"},
