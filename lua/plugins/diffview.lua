@@ -6,8 +6,8 @@ return {
     init = function()
         local map = require("utils.keymap").map
         map("n", "<leader>gd", ":DiffviewOpen<CR>", "Open Diffview")
-        map("n", "<leader>gh", ":DiffviewFileHistory %<CR>", "Open Diffview file commits history")
-        map("n", "<leader>gH", ":DiffviewFileHistory<CR>", "Open Diffview commits history")
+        map("n", "<leader>gH", ":DiffviewFileHistory %<CR>", "Open Diffview file commits history")
+        -- map("n", "<leader>gH", ":DiffviewFileHistory<CR>", "Open Diffview commits history")
     end,
     opts = function(_, opts)
         local actions = require("diffview.actions")

@@ -5,6 +5,11 @@ return {
         local map = require("utils.keymap").map
         map("n", "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage hunk")
         map("n", "<leader>ghu", ":Gitsigns undo_stage_hunk<CR>", "Undo stage hunk")
+        map("n", "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset hunk")
+        map("n", "<leader>ghp", ":Gitsigns preview_hunk<CR>", "Preview hunk")
+        map("n", "<leader>gh]", ":Gitsigns nav_hunk next<CR>", "Next hunk")
+        map("n", "<leader>gh[", ":Gitsigns nav_hunk prev<CR>", "Previous hunk")
+        map("n", "<leader>gb", ":Gitsigns blame<CR>", "Blame")
     end,
     opts = {
         signs = {
