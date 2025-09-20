@@ -10,7 +10,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-nvim-lsp",
         {
             "williamboman/mason.nvim",
             cmd = { "Mason" },
@@ -36,15 +36,15 @@ return {
     },
     config = function(_, opts)
         local lspconfig = require("lspconfig")
-        local cmplsp = require("cmp_nvim_lsp")
+        -- local cmplsp = require("cmp_nvim_lsp")
         require("mason").setup()
         local mlsp = require("mason-lspconfig")
 
         local capabilities = vim.tbl_deep_extend(
             "force",
             {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmplsp.default_capabilities()
+            vim.lsp.protocol.make_client_capabilities()
+            -- cmplsp.default_capabilities(),
         )
 
         local on_attach = function(client, bufnr)
