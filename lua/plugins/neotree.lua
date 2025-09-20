@@ -43,7 +43,7 @@ return {
             },
         },
         filesystem = {
-            follow_current_file = { enabled = true, leave_dirs_open = true },
+            -- follow_current_file = { enabled = true, leave_dirs_open = true },
             filtered_items = {
                 always_show_by_pattern = {
                     ".env*",

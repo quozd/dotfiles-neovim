@@ -57,3 +57,4 @@ vim.opt.virtualedit = "block" -- allow going past end of line in visual block mo
 vim.opt.visualbell = false -- disable visual bell
 vim.opt.wrap = false -- don't wrap text
 vim.opt.writebackup = true -- backup before save
+vim.opt.exrc = true -- enable local .nvim.lua or .vim.lua
