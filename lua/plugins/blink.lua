@@ -49,6 +49,7 @@ return {
             },
         },
         keymap = {
+            ['<C-Space>'] = false,
             ['<C-e>'] = { 'hide', 'fallback' },
             ['<CR>'] = { 'accept', 'fallback' },
 
