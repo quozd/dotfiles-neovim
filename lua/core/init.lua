@@ -17,3 +17,4 @@ require("lazy").setup("plugins")
 
 require "core.keymaps"
 require "core.autocmd"
+require "core.lsp"
