@@ -52,6 +52,7 @@ return {
                 always_show = {
                     ".gitignore",
                     ".dockerignore",
+                    ".helm",
                 },
             },
             hijack_netrw_behavior = "open_current",
