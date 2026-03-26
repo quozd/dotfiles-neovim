@@ -10,6 +10,7 @@ return {
         map("n", "<leader>gh]", ":Gitsigns nav_hunk next<CR>", "Next hunk")
         map("n", "<leader>gh[", ":Gitsigns nav_hunk prev<CR>", "Previous hunk")
         map("n", "<leader>gb", ":Gitsigns blame<CR>", "Blame")
+        map("n", "<leader>gB", ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame")
     end,
     opts = {
         signs = {
@@ -35,7 +36,7 @@ return {
             follow_files = true
         },
         attach_to_untracked = true,
-        current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
         current_line_blame_opts = {
             virt_text = true,
             virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
