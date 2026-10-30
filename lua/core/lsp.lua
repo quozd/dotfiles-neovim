@@ -6,7 +6,8 @@ vim.lsp.enable({
     "typescript-language-server",
 })
 
-vim.lsp.config('rust_analyzer', {
+-- vim.lsp.config('rust_analyzer', {
+vim.lsp.config.rust_analyzer = {
     settings = {
         ['rust-analyzer'] = {
             check = {
@@ -39,7 +40,8 @@ vim.lsp.config('rust_analyzer', {
             },
         },
     },
-})
+}
+-- })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
