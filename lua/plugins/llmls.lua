@@ -1,5 +1,6 @@
 return {
 	"huggingface/llm.nvim",
+	enabled = false,
 	opts = {
 		backend = "ollama",
 		url = "http://localhost:11434/api/generate",
